@@ -2,7 +2,7 @@ import React from "react"
 import { graphql, navigate, StaticQuery } from "gatsby"
 import "./home.css"
 
-export default () => (
+const Home = () => (
   <StaticQuery
     query={graphql`
       query HomeQuery {
@@ -56,3 +56,5 @@ export default () => (
     )}
   />
 )
+
+export default Home
