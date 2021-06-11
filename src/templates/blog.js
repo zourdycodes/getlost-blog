@@ -41,31 +41,29 @@ const BlogTemplate = props => {
 export default BlogTemplate
 
 export const query = graphql`
-  query BlogTemplate($id: String!) {
-    contentfulBlog(id: { eq: $id }) {
+  query BlogTemplate {
+    contentfulBlog {
       title
       id
       slug
-      content {
-        childMarkdownRemark {
-          html
-        }
-      }
-      seoTitle
       seoDescription
       seoAuthor
       seoKeywords
-      seoImage {
+      seoImages {
         fluid(maxWidth: 1200, quality: 100) {
           ...GatsbyContentfulFluid
           src
         }
       }
-      featuredImage {
+      featuredImages {
         fluid(maxWidth: 1200, quality: 100) {
           ...GatsbyContentfulFluid
           src
         }
+      }
+      seoText
+      childrenContentfulBlogContentTextNode {
+        content
       }
     }
   }

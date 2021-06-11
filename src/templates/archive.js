@@ -6,8 +6,7 @@ import Nav from "../components/nav"
 import SEO from "../components/seo"
 import "../components/home/home.css"
 import "./archive.css"
-
-import headerImg from "../images/general-header-image.jpg"
+import headerImg from "../images/assets/general-header-image.jpg"
 
 const Archive = props => {
   const blogContent = props.data.allContentfulBlog
@@ -132,12 +131,12 @@ const Archive = props => {
 export default Archive
 
 export const pageQuery = graphql`
-  query ArchiveQuery($skip: Int!, $limit: Int!) {
+  query ArchiveQuery {
     allContentfulBlog(
       sort: { fields: [createdAt], order: DESC }
       filter: { node_locale: { eq: "en-US" } }
-      skip: $skip
-      limit: $limit
+      skip: null
+      limit: null
     ) {
       edges {
         node {
@@ -145,15 +144,15 @@ export const pageQuery = graphql`
           slug
           title
           createdAt
-          category {
-            title
-            id
-          }
           featuredImages {
             fluid(maxWidth: 1200, quality: 85) {
               src
               ...GatsbyContentfulFluid
             }
+          }
+          category {
+            title
+            id
           }
         }
       }

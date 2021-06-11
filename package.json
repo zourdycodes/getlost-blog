@@ -16,6 +16,7 @@
     "gatsby-plugin-sharp": "^3.6.0",
     "gatsby-source-contentful": "^5.7.0",
     "gatsby-source-filesystem": "^3.6.0",
+    "gatsby-transformer-remark": "^4.4.1",
     "gatsby-transformer-sharp": "^3.6.0",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",

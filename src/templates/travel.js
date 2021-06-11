@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 import "../components/home/home.css"
 import "./archive.css"
 
-import headerImg from "../images/general-header-image.jpg"
+import headerImg from "../images/assets/general-header-image.jpg"
 
 const Travel = props => {
   const blogContent = props.data.allContentfulBlog
@@ -135,15 +135,13 @@ const Travel = props => {
 export default Travel
 
 export const pageQuery = graphql`
-  query TravelQuery($skip: Int!, $limit: Int!) {
+  query GuideQuery {
     allContentfulBlog(
       sort: { fields: [createdAt], order: DESC }
       filter: {
         node_locale: { eq: "en-US" }
-        categories: { elemMatch: { category: { eq: "Travel" } } }
+        category: { elemMatch: { title: { eq: "Travel" } } }
       }
-      skip: $skip
-      limit: $limit
     ) {
       edges {
         node {
@@ -151,11 +149,11 @@ export const pageQuery = graphql`
           slug
           title
           createdAt
-          categories {
-            category
+          category {
+            title
             id
           }
-          featuredImage {
+          featuredImages {
             fluid(maxWidth: 1200, quality: 85) {
               src
               ...GatsbyContentfulFluid
