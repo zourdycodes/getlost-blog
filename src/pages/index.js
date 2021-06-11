@@ -5,6 +5,9 @@ import Seo from "../components/seo"
 import Nav from "../components/nav"
 import Featured from "../components/featured"
 import Home from "../components/home"
+import { Link } from "gatsby"
+import "./styles/index.css"
+import Footer from "../components/footer"
 
 const IndexPage = () => (
   <Layout>
@@ -12,6 +15,10 @@ const IndexPage = () => (
     <Nav />
     <Featured />
     <Home />
+    <Link to="/blog" className="viewmore">
+      View More
+    </Link>
+    <Footer />
   </Layout>
 )
 
